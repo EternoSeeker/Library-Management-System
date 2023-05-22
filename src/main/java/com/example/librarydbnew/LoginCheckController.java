@@ -19,7 +19,7 @@ public class LoginCheckController {
         welcomeText.setText("Hello");
     }
 
-    public void switch_member(ActionEvent Action) throws IOException {
+    public void switchMember(ActionEvent Action) throws IOException {
         final var stage = new Stage();
         final FXMLLoader fxmlLoader = new FXMLLoader(BookApplication.class.getResource("LoginMember.fxml"));
         final Scene login_member = new Scene(fxmlLoader.load(), 600, 400);
@@ -27,7 +27,7 @@ public class LoginCheckController {
         stage.setScene(login_member);
         stage.show();
     }
-    public void switch_admin(ActionEvent Action) throws IOException {
+    public void switchAdmin(ActionEvent Action) throws IOException {
         final var stage = new Stage();
         final FXMLLoader fxmlLoader = new FXMLLoader(BookApplication.class.getResource("LoginAdmin.fxml"));
         final Scene login_admin = new Scene(fxmlLoader.load(), 600, 400);
