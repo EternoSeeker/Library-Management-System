@@ -29,4 +29,15 @@ public class LoginCheckController {
     public void switch_member(ActionEvent Action) throws IOException {
         switch_scene_member(new Stage());
     }
+
+    public void switch_scene_admin(Stage stage1) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(BookApplication.class.getResource("LoginAdmin.fxml"));
+        Scene login_admin = new Scene(fxmlLoader.load(), 600, 400);
+        stage1.setTitle("Admin");
+        stage1.setScene(login_admin);
+        stage1.show();
+    }
+    public void switch_admin(ActionEvent Action) throws IOException {
+        switch_scene_admin(new Stage());
+    }
 }

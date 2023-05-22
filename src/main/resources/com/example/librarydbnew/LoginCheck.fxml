@@ -18,7 +18,7 @@
       </font></Label>
    <HBox>
       <children>
-         <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="27.0" prefWidth="68.0" text="Admin" translateX="170.0">
+         <Button alignment="CENTER" onAction="#switch_admin" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="27.0" prefWidth="68.0" text="Admin" translateX="170.0">
             <font>
                <Font size="16.0" />
             </font>
