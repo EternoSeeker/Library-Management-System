@@ -37,6 +37,14 @@ public class Member {
     public long getMemberId(){
         return member_id;
     }
+    public String getFirst_name(){ return first_name;}
+    public String getLast_name(){return last_name;}
+    public String getEmail(){return email;}
+    public String getPassword(){return password;}
+    public String getBook_issue_date(){return book_issue_date;}
+
+    public long getBook_id(){return book_id;}
+
     public void setMemberId(long member_id){
         this.member_id = member_id;
     }

@@ -39,7 +39,10 @@ public class Repository {
             final String isbn = result.getString("isbn");
             final long totalCopies = result.getLong("total_copies");
             final long price = result.getLong("price");
-            final Book book = new Book(id, name, isbn, totalCopies, price);
+            final String authorName = result.getString("author_name");
+            final long pages = result.getLong("pages");
+            final String issueDate = result.getString("issue_date");
+            final Book book = new Book(id, name, isbn, totalCopies, price, authorName, pages, issueDate);
             books.add(book);
         }
         return books;
@@ -51,8 +54,9 @@ public class Repository {
 
         final List<Book> books = repo.getAllBooks();
         for(final Book book : books){
-            System.out.println(book.id);
-            System.out.println(book.name);
+            System.out.println("ID: "+ book.getId());
+            System.out.println("Name: " + book.getName());
+            System.out.println("Pages: " + book.getPages());
         }
     }
 }

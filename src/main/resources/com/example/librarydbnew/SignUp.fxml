@@ -38,7 +38,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Button layoutX="266.0" layoutY="307.0" mnemonicParsing="false" text="Sign Up" textFill="#1c478c" underline="true" >
+      <Button onAction="#insertSignUp" layoutX="266.0" layoutY="307.0" mnemonicParsing="false" text="Sign Up" textFill="#1c478c" underline="true" >
          <font>
             <Font size="14.0" />
          </font>
