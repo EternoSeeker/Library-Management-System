@@ -1,25 +1,32 @@
 package com.example.librarydbnew;
+import javafx.event.ActionEvent;
+
+import java.security.cert.CertPath;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Repository {
-
-    final Connection connection;
-
-    public Repository() throws SQLException {
+    public static  Connection getConnection(){
+        String url = "jdbc:oracle:thin:@localhost:1521/XE";
+        String username = "system";
+        String password = "shr!";
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
         }
         catch (ClassNotFoundException e){
             e.printStackTrace();
         }
-        connection = DriverManager.getConnection(
-                "jdbc:oracle:thin:@localhost:1521/XE",
-                "system",
-                "shr!"
-        );
+        try{
+            Connection connection = DriverManager.getConnection(url, username, password);
+            return connection;
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+        return null;
     }
+
+    private static final Connection connection = Repository.getConnection();
 
     public List<Book> getAllBooks() throws SQLException{
         final Statement statement = connection.createStatement();

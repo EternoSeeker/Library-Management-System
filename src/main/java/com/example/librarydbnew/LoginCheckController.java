@@ -35,4 +35,15 @@ public class LoginCheckController {
         stage.setScene(login_admin);
         stage.show();
     }
+
+    public void switchSignUp(ActionEvent Action) throws IOException {
+        final var stage = new Stage();
+        final FXMLLoader fxmlLoader = new FXMLLoader(BookApplication.class.getResource("SignUp.fxml"));
+        final Scene signUp = new Scene(fxmlLoader.load(), 600, 400);
+        stage.setTitle("Admin ");
+        stage.setScene(signUp);
+        stage.show();
+    }
+
+
 }

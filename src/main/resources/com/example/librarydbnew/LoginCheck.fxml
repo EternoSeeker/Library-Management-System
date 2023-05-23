@@ -37,7 +37,7 @@
                <Font size="14.0" />
             </font>
          </Label>
-         <Button mnemonicParsing="false" onAction="#onHelloButtonClick" text="Sign Up" translateX="205.0">
+         <Button mnemonicParsing="false" onAction="#switchSignUp" text="Sign Up" translateX="205.0">
             <font>
                <Font size="11.0" />
             </font>
