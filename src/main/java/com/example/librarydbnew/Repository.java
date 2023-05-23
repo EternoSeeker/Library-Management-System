@@ -48,10 +48,16 @@ public class Repository {
         return books;
     }
 
+    public void insertMember() throws SQLException{
+        final Statement statement = connection.createStatement();
+        statement.executeQuery("insert into member (member_id, first_name, last_name, email, password, book_issue_date, book_id) values (11, 'ABC', 'XYZ', 'afahrenbach0@mail.com', '4kV1FN4kTr5A', '10-NOV-22', null)");
+        System.out.println("Inserted data test");
+    }
+
 
     public static void main(String[] args) throws SQLException {
         final Repository repo = new Repository();
-
+        repo.insertMember();
         final List<Book> books = repo.getAllBooks();
         for(final Book book : books){
             System.out.println("ID: "+ book.getId());
