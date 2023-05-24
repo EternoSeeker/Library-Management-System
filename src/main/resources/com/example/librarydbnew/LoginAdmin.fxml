@@ -7,28 +7,26 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.librarydbnew.LoginAdminController">
-    <children>
-        <TextField layoutX="247.0" layoutY="161.0" />
-        <TextField layoutX="247.0" layoutY="213.0" />
-        <Label layoutX="177.0" layoutY="161.0" text="E-mail">
-            <font>
-                <Font size="16.0" />
-            </font>
-        </Label>
-        <Label layoutX="166.0" layoutY="213.0" text="Password">
-            <font>
-                <Font size="16.0" />
-            </font>
-        </Label>
-        <Label layoutX="265.0" layoutY="106.0" text="Admin login" textFill="#006cd1">
-            <font>
-                <Font size="18.0" />
-            </font>
-        </Label>
-      <Button layoutX="288.0" layoutY="267.0" mnemonicParsing="false" text="Sign in" textFill="#1c40a4" underline="true">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Button>
-    </children>
+    <TextField layoutX="247.0" layoutY="161.0" />
+    <TextField layoutX="247.0" layoutY="213.0" />
+    <Label layoutX="177.0" layoutY="161.0" text="E-mail:">
+        <font>
+            <Font size="16.0" />
+        </font>
+    </Label>
+    <Label layoutX="166.0" layoutY="213.0" text="Password:">
+        <font>
+            <Font size="16.0" />
+        </font>
+    </Label>
+    <Label layoutX="265.0" layoutY="106.0" text="Admin login" textFill="#006cd1">
+        <font>
+            <Font size="18.0" />
+        </font>
+    </Label>
+    <Button layoutX="288.0" layoutY="267.0" mnemonicParsing="false" text="Sign in" textFill="#1c40a4" underline="true">
+        <font>
+          <Font size="14.0" />
+        </font>
+    </Button>
 </AnchorPane>

@@ -51,11 +51,13 @@ public class Repository {
     public static void insertMember(String firstName, String lastName, String emailAddress, String pas) throws SQLException{
         String sql = "insert into member (member_id, first_name, last_name, email, password, book_issue_date, book_id) values (12, ?, ?, ?, ?, null,null);";
         PreparedStatement statement;
-        statement = connection.prepareStatement(sql);
-        statement.setString(1, firstName);
-        statement.setString(2, lastName);
-        statement.setString(3, emailAddress);
-        statement.setString(4, pas);
+          statement = connection.prepareStatement(sql);
+          statement.setString(1, firstName);
+          statement.setString(2, lastName);
+          statement.setString(3, emailAddress);
+          statement.setString(4, pas);
+          statement.executeUpdate();
+          connection.close();
     }
 
 
