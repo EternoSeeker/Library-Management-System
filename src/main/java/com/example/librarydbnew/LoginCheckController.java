@@ -13,7 +13,8 @@ public class LoginCheckController {
     @FXML
     private Label welcomeText;
     private Repository repository = null;
-    public void setRepository(Repository repository){
+
+    public void setRepository(Repository repository) {
         this.repository = repository;
     }
 
@@ -30,6 +31,7 @@ public class LoginCheckController {
         stage.setScene(login_member);
         stage.show();
     }
+
     public void switchAdmin(ActionEvent Action) throws IOException {
         final var stage = new Stage();
         final FXMLLoader fxmlLoader = new FXMLLoader(BookApplication.class.getResource("LoginAdmin.fxml"));

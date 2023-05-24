@@ -1,18 +1,16 @@
 package com.example.librarydbnew;
-import javafx.event.ActionEvent;
 
-import java.security.cert.CertPath;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Repository {
-    final Connection connection;
+    private final Connection connection;
+
     public Repository() throws SQLException {
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
-        }
-        catch (ClassNotFoundException e){
+        } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
         connection = DriverManager.getConnection(
@@ -22,12 +20,12 @@ public class Repository {
         );
     }
 
-    public List<Book> getAllBooks() throws SQLException{
+    public List<Book> getAllBooks() throws SQLException {
         final Statement statement = connection.createStatement();
         final ResultSet result = statement.executeQuery("SELECT * FROM book WHERE book_name LIKE 'A%' ORDER BY book_name");
 
         ArrayList<Book> books = new ArrayList<Book>();
-        while(result.next()){
+        while (result.next()) {
             final long id = result.getLong("id");
             final String name = result.getString("book_name");
             final String isbn = result.getString("isbn");
@@ -42,23 +40,23 @@ public class Repository {
         return books;
     }
 
-    public void insertMember(String firstName, String lastName, String emailAddress, String pas) throws SQLException{
-        String sql = "insert into member (member_id, first_name, last_name, email, password, book_issue_date, book_id) values (12, ?, ?, ?, ?, null, null)";
+    public void insertMember(String firstName, String lastName, String emailAddress, String pas) throws SQLException {
+        String sql = "insert into member (member_id, first_name, last_name, email, password, book_issue_date, book_id) values (member_id.NEXTVAL, ?, ?, ?, ?, null, null)";
         PreparedStatement statement;
-          statement = connection.prepareStatement(sql);
-          statement.setString(1, firstName);
-          statement.setString(2, lastName);
-          statement.setString(3, emailAddress);
-          statement.setString(4, pas);
-          statement.executeUpdate();
+        statement = connection.prepareStatement(sql);
+        statement.setString(1, firstName);
+        statement.setString(2, lastName);
+        statement.setString(3, emailAddress);
+        statement.setString(4, pas);
+        statement.executeUpdate();
     }
 
 
     public static void main(String[] args) throws SQLException {
         final Repository repo = new Repository();
         final List<Book> books = repo.getAllBooks();
-        for(final Book book : books){
-            System.out.println("ID: "+ book.getId());
+        for (final Book book : books) {
+            System.out.println("ID: " + book.getId());
             System.out.println("Name: " + book.getName());
             System.out.println("Pages: " + book.getPages());
         }
