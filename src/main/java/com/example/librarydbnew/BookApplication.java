@@ -13,7 +13,7 @@ public class BookApplication extends Application {
 
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(BookApplication.class.getResource("LoginCheck.fxml"));
-        Scene login_check = new Scene(fxmlLoader.load(), 320, 240);
+        Scene login_check = new Scene(fxmlLoader.load(), 600, 400);
         stage.setTitle("Hello!");
         stage.setScene(login_check);
         stage.show();

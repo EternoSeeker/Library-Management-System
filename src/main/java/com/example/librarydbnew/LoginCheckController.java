@@ -40,7 +40,7 @@ public class LoginCheckController {
         final var stage = new Stage();
         final FXMLLoader fxmlLoader = new FXMLLoader(BookApplication.class.getResource("SignUp.fxml"));
         final Scene signUp = new Scene(fxmlLoader.load(), 600, 400);
-        stage.setTitle("Admin ");
+        stage.setTitle("Sign Up ");
         stage.setScene(signUp);
         stage.show();
     }
