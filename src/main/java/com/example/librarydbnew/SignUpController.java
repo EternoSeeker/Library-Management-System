@@ -17,8 +17,14 @@ public class SignUpController {
     private TextField email;
     @FXML
     private PasswordField password;
+
+    private Repository repository = null;
+    public void setRepository(Repository repository){
+        this.repository = repository;
+    }
+
     public void insertSignUp(ActionEvent event) throws SQLException {
-        //System.out.println(firstName.getText());
-        Repository.insertMember(firstName.getText(), lastName.getText(), email.getText(), password.getText());
+
+        repository.insertMember(firstName.getText(), lastName.getText(), email.getText(), password.getText());
     }
 }

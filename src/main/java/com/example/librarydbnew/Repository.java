@@ -7,26 +7,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Repository {
-    public static  Connection getConnection(){
-        String url = "jdbc:oracle:thin:@localhost:1521/XE";
-        String username = "system";
-        String password = "shr!";
+    final Connection connection;
+    public Repository() throws SQLException {
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
         }
         catch (ClassNotFoundException e){
             e.printStackTrace();
         }
-        try{
-            Connection connection = DriverManager.getConnection(url, username, password);
-            return connection;
-        } catch (SQLException e){
-            e.printStackTrace();
-        }
-        return null;
+        connection = DriverManager.getConnection(
+                "jdbc:oracle:thin:@localhost:1521/XE",
+                "system",
+                "shr!"
+        );
     }
-
-    private static final Connection connection = Repository.getConnection();
 
     public List<Book> getAllBooks() throws SQLException{
         final Statement statement = connection.createStatement();
@@ -48,8 +42,8 @@ public class Repository {
         return books;
     }
 
-    public static void insertMember(String firstName, String lastName, String emailAddress, String pas) throws SQLException{
-        String sql = "insert into member (member_id, first_name, last_name, email, password, book_issue_date, book_id) values (12, ?, ?, ?, ?, null,null);";
+    public void insertMember(String firstName, String lastName, String emailAddress, String pas) throws SQLException{
+        String sql = "insert into member (member_id, first_name, last_name, email, password, book_issue_date, book_id) values (12, ?, ?, ?, ?, null, null)";
         PreparedStatement statement;
           statement = connection.prepareStatement(sql);
           statement.setString(1, firstName);
@@ -57,7 +51,6 @@ public class Repository {
           statement.setString(3, emailAddress);
           statement.setString(4, pas);
           statement.executeUpdate();
-          connection.close();
     }
 
 

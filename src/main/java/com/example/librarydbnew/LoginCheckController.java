@@ -12,7 +12,10 @@ import java.io.IOException;
 public class LoginCheckController {
     @FXML
     private Label welcomeText;
-
+    private Repository repository = null;
+    public void setRepository(Repository repository){
+        this.repository = repository;
+    }
 
     @FXML
     protected void onHelloButtonClick() {
@@ -40,6 +43,8 @@ public class LoginCheckController {
         final var stage = new Stage();
         final FXMLLoader fxmlLoader = new FXMLLoader(BookApplication.class.getResource("SignUp.fxml"));
         final Scene signUp = new Scene(fxmlLoader.load(), 600, 400);
+        final SignUpController controller = fxmlLoader.getController();
+        controller.setRepository(repository);
         stage.setTitle("Sign Up ");
         stage.setScene(signUp);
         stage.show();
