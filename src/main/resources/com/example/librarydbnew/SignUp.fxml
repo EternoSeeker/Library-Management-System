@@ -29,7 +29,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <TextField id="email" fx:id="email" layoutX="255.0" layoutY="165.0" />
+      <TextField id="email" fx:id="email" layoutX="255.0" layoutY="165.0" promptText="xyz@example.com" />
       <Label layoutX="205.0" layoutY="168.0" text="E-mail:">
          <font>
             <Font size="14.0" />
