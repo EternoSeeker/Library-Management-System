@@ -18,7 +18,7 @@ public class LoginCheckController {
     public void switchMember(ActionEvent Action) throws IOException {
         final var stage = new Stage();
         final FXMLLoader fxmlLoader = new FXMLLoader(BookApplication.class.getResource("LoginMember.fxml"));
-        final Scene loginMember = new Scene(fxmlLoader.load(), 600, 400);
+        final Scene loginMember = new Scene(fxmlLoader.load(), 800, 600);
         stage.setTitle("Member");
         stage.setScene(loginMember);
         stage.show();
@@ -27,7 +27,7 @@ public class LoginCheckController {
     public void switchAdmin(ActionEvent Action) throws IOException {
         final var stage = new Stage();
         final FXMLLoader fxmlLoader = new FXMLLoader(BookApplication.class.getResource("LoginAdmin.fxml"));
-        final Scene loginAdmin = new Scene(fxmlLoader.load(), 600, 400);
+        final Scene loginAdmin = new Scene(fxmlLoader.load(), 800, 600);
         stage.setTitle("Admin ");
         stage.setScene(loginAdmin);
         stage.show();
@@ -36,7 +36,7 @@ public class LoginCheckController {
     public void switchSignUp(ActionEvent Action) throws IOException {
         final var stage = new Stage();
         final FXMLLoader fxmlLoader = new FXMLLoader(BookApplication.class.getResource("SignUp.fxml"));
-        final Scene signUp = new Scene(fxmlLoader.load(), 600, 400);
+        final Scene signUp = new Scene(fxmlLoader.load(), 800, 600);
         final SignUpController controller = fxmlLoader.getController();
         controller.setRepository(repository);
         stage.setTitle("Sign Up ");
