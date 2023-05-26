@@ -70,11 +70,26 @@
          </font>
       </Label>
       <PasswordField id="password" fx:id="password" layoutX="349.0" layoutY="320.0" prefHeight="30.0" prefWidth="170.0" />
-      <PasswordField layoutX="349.0" layoutY="377.0" prefHeight="30.0" prefWidth="170.0" />
+      <PasswordField id="confirmPassword" fx:id="confirmPassword" layoutX="349.0" layoutY="377.0" prefHeight="30.0" prefWidth="170.0" />
       <ImageView fitHeight="168.0" fitWidth="170.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../Images/pngwing.com.png" />
          </image>
       </ImageView>
+      <Label id="invalidEmail" fx:id="invalidEmail" layoutX="532.0" layoutY="265.0" prefHeight="20.0" prefWidth="185.0" textFill="#c70906">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label id="invalidPassword" fx:id="invalidPassword" layoutX="532.0" layoutY="325.0" prefHeight="20.0" prefWidth="185.0" textFill="#c70906">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label id="confirmPassMatch" fx:id="confirmPassMatch" layoutX="532.0" layoutY="382.0" prefHeight="20.0" prefWidth="185.0" textFill="#c70906">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
