@@ -1,5 +1,7 @@
 package com.example.librarydbnew;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +20,23 @@ public class Repository {
                 "system",
                 "shr!"
         );
+    }
+
+    public static String encrypt(String password) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            md.update(password.getBytes());
+            byte[] bytes = md.digest();
+            StringBuilder sb = new StringBuilder();
+            for (byte b : bytes) {
+                sb.append(Integer.toString((b & 0xff) + 0x100, 16).substring(1));
+            }
+            return sb.toString();
+
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     public List<Book> getAllBooks() throws SQLException {
@@ -39,6 +58,22 @@ public class Repository {
         }
         return books;
     }
+
+    public boolean checkMemberEmail(String emailAddress) throws SQLException{
+        String emailCheck = null;
+        String sql = "SELECT email FROM member WHERE email = ?";
+        PreparedStatement statement;
+        statement = connection.prepareStatement(sql);
+        statement.setString(1, emailAddress);
+        final ResultSet result = statement.getResultSet();
+        return result.getString("email") != null;
+    }
+
+//    public  String[] returnMemberDetail() throws SQLException{
+//        String[] memberdetails = new String[3];
+//        final Statement statement = connection.createStatement();
+//        final ResultSet result = statement.executeQuery("");
+//    }
 
     public void insertMember(String firstName, String lastName, String emailAddress, String pas) throws SQLException {
         String sql = "insert into member (member_id, first_name, last_name, email, password, book_issue_date, book_id) values (member_id.NEXTVAL, ?, ?, ?, ?, null, null)";
