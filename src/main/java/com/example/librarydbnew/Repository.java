@@ -59,6 +59,19 @@ public class Repository {
         return books;
     }
 
+    public  String[] returnMemberDetail(String emailAddress) throws SQLException{
+        String[] memberdetails = new String[3];
+        String sql = "SELECT first_name, last_name, password FROM member WHERE email = ?";
+        PreparedStatement statement;
+        statement = connection.prepareStatement(sql);
+        statement.setString(1, emailAddress);
+        final ResultSet result = statement.getResultSet();
+        memberdetails[0] = result.getString("first_name");
+        memberdetails[1] = result.getString("last_name");
+        memberdetails[2] = result.getString("password");
+        return memberdetails;
+    }
+
     public boolean checkMemberEmail(String emailAddress) throws SQLException{
         String emailCheck = null;
         String sql = "SELECT email FROM member WHERE email = ?";
@@ -66,14 +79,9 @@ public class Repository {
         statement = connection.prepareStatement(sql);
         statement.setString(1, emailAddress);
         final ResultSet result = statement.getResultSet();
-        return result.getString("email") != null;
+        emailCheck = result.getString("email");
+        return emailCheck != null;
     }
-
-//    public  String[] returnMemberDetail() throws SQLException{
-//        String[] memberdetails = new String[3];
-//        final Statement statement = connection.createStatement();
-//        final ResultSet result = statement.executeQuery("");
-//    }
 
     public void insertMember(String firstName, String lastName, String emailAddress, String pas) throws SQLException {
         String sql = "insert into member (member_id, first_name, last_name, email, password, book_issue_date, book_id) values (member_id.NEXTVAL, ?, ?, ?, ?, null, null)";

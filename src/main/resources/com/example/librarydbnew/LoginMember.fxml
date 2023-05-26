@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.librarydbnew.LoginMemberController">
-   <TextField layoutX="353.0" layoutY="236.0" prefHeight="32.0" prefWidth="180.0" promptText="example@domain.com">
+   <TextField id="memberEmail" fx:id="memberEmail" layoutX="353.0" layoutY="236.0" prefHeight="32.0" prefWidth="180.0" promptText="example@domain.com">
       <font>
          <Font size="14.0" />
       </font></TextField>
@@ -45,7 +45,7 @@
          </Glow>
       </effect>
    </Label>
-   <Button onAction="#switchMemberPage" layoutX="405.0" layoutY="378.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="75.0" text="Sign in" textFill="#1c40a4" underline="true">
+   <Button layoutX="405.0" layoutY="378.0" mnemonicParsing="false" onAction="#switchMemberPage" prefHeight="30.0" prefWidth="75.0" text="Sign in" textFill="#1c40a4" underline="true">
       <font>
          <Font size="15.0" />
       </font>
@@ -57,10 +57,20 @@
          </DropShadow>
       </effect>
    </Button>
-   <PasswordField layoutX="353.0" layoutY="298.0" prefHeight="32.0" prefWidth="180.0" />
+   <PasswordField id="memberPassword" fx:id="memberPassword" layoutX="353.0" layoutY="298.0" prefHeight="32.0" prefWidth="180.0" />
    <ImageView fitHeight="259.0" fitWidth="266.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
       <image>
          <Image url="@../../../Images/pngwing.com.png" />
       </image>
    </ImageView>
+   <Label id="invalidEmail" fx:id="invalidEmail" layoutX="544.0" layoutY="242.0" prefHeight="20.0" prefWidth="175.0" textFill="#a10000">
+      <font>
+         <Font size="14.0" />
+      </font>
+   </Label>
+   <Label id="invalidPassword" fx:id="invalidPassword" layoutX="544.0" layoutY="304.0" prefHeight="20.0" prefWidth="175.0" textFill="#a10000">
+      <font>
+         <Font size="14.0" />
+      </font>
+   </Label>
 </AnchorPane>
