@@ -39,9 +39,13 @@ public class Repository {
         }
     }
 
-    public List<Book> getAllBooks() throws SQLException {
-        final Statement statement = connection.createStatement();
-        final ResultSet result = statement.executeQuery("SELECT * FROM book WHERE book_name LIKE 'A%' ORDER BY book_name");
+    public List<Book> getAllBooks(String nameOfBook) throws SQLException {
+        String sql = "SELECT * FROM book WHERE book_name = ?";
+        PreparedStatement statement;
+        statement = connection.prepareStatement(sql);
+        statement.setString(1, nameOfBook);
+        statement.executeUpdate();
+        final ResultSet result = statement.getResultSet();
 
         ArrayList<Book> books = new ArrayList<Book>();
         while (result.next()) {
@@ -65,6 +69,7 @@ public class Repository {
         PreparedStatement statement;
         statement = connection.prepareStatement(sql);
         statement.setString(1, emailAddress);
+        statement.executeUpdate();
         final ResultSet result = statement.getResultSet();
         memberdetails[0] = result.getString("first_name");
         memberdetails[1] = result.getString("last_name");
@@ -78,6 +83,7 @@ public class Repository {
         PreparedStatement statement;
         statement = connection.prepareStatement(sql);
         statement.setString(1, emailAddress);
+        statement.executeUpdate();
         final ResultSet result = statement.getResultSet();
         emailCheck = result.getString("email");
         return emailCheck != null;
@@ -97,12 +103,13 @@ public class Repository {
 
     public static void main(String[] args) throws SQLException {
         final Repository repo = new Repository();
-        final List<Book> books = repo.getAllBooks();
-        for (final Book book : books) {
-            System.out.println("ID: " + book.getId());
-            System.out.println("Name: " + book.getName());
-            System.out.println("Pages: " + book.getPages());
-        }
+//        final List<Book> books = repo.getAllBooks("Fury");
+//        for (final Book book : books) {
+//            System.out.println("ID: " + book.getId());
+//            System.out.println("Name: " + book.getName());
+//            System.out.println("Pages: " + book.getPages());
+//            System.out.println("Author name: " + book.getAuthorName());
+//        }
     }
 }
 

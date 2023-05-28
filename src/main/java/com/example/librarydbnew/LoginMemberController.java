@@ -25,7 +25,7 @@ public class LoginMemberController {
     @FXML
     private Label invalidPassword;
     private Repository repository = null;
-    String[] memberDetails = new String[3];
+    String[] memberDet = new String[3];
 
     public static String encryptPassword(String password) {
         try {
@@ -48,25 +48,26 @@ public class LoginMemberController {
         final var stage = new Stage();
         final FXMLLoader fxmlLoader = new FXMLLoader(BookApplication.class.getResource("MemberPage.fxml"));
         final Scene memberPage = new Scene(fxmlLoader.load(), 800, 600);
-        String emailAdd = memberEmail.getText();
-        if(repository.checkMemberEmail(emailAdd)){
-            memberDetails = repository.returnMemberDetail(emailAdd);
-            String pass = memberPassword.getText();
-            if(Objects.equals(encryptPassword(pass), memberDetails[2])){
-                stage.setTitle("Member Page");
-                stage.setScene(memberPage);
-                stage.show();
-            }
-            else{
-                invalidPassword.setText("Wrong password");
-            }
-        }
-        else{
-            invalidEmail.setText("Email not found");
-        }
         stage.setTitle("Member Page");
         stage.setScene(memberPage);
         stage.show();
+//        String emailAdd = memberEmail.getText();
+//        MemberPageController memberPageController = new MemberPageController();
+//        if(repository.checkMemberEmail(emailAdd)){
+//            memberDet = repository.returnMemberDetail(emailAdd);
+//            String pass = memberPassword.getText();
+//            if(Objects.equals(encryptPassword(pass), memberDet[2])){
+//                stage.setTitle("Member Page");
+//                stage.setScene(memberPage);
+//                stage.show();
+//            }
+//            else{
+//                invalidPassword.setText("Wrong password");
+//            }
+//        }
+//        else{
+//            invalidEmail.setText("Email not found");
+//        }
     }
 //    public void goBackToLoginCheck(ActionEvent event) throws IOException{
 //    }
