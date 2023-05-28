@@ -1,9 +1,11 @@
 package com.example.librarydbnew;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -41,6 +43,7 @@ public class SignUpController {
         Pattern pattern = Pattern.compile(emailRegex);
         return pattern.matcher(email).matches();
     }
+
     public static String encryptPassword(String password) {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
@@ -58,24 +61,37 @@ public class SignUpController {
         }
     }
 
-
     public void insertSignUp(ActionEvent event) throws SQLException, IOException {
         String pass = password.getText();
         String confirmPass = confirmPassword.getText();
-        if(isValidEmailAddress(email.getText()) && password.getText().length() >= 8 && Objects.equals(pass, confirmPass)){
+        boolean passCheck = pass.length() >= 8;
+        boolean emailCheck = isValidEmailAddress(email.getText());
+        boolean confirmCheck = Objects.equals(pass, confirmPass);
+        if (emailCheck && passCheck && confirmCheck) {
             pass = encryptPassword(pass);
-            System.out.println(pass);
+            //System.out.println(pass);
             repository.insertMember(firstName.getText(), lastName.getText(), email.getText(), pass);
             loginCheckController.switchMember(event);
         }
-        if(!isValidEmailAddress(email.getText())){
-            invalidEmail.setText("Invalid email format");
-        }
-        if(password.getText().length() < 8){
+        else if(!passCheck && !emailCheck){
             invalidPassword.setText("Min. 8 Characters");
+            invalidEmail.setText("Invalid email format");
+            confirmPassMatch.setText("");
         }
-        if(!Objects.equals(password.getText(), confirmPass)){
+        else if (!emailCheck) {
+            invalidEmail.setText("Invalid email format");
+            invalidPassword.setText("");
+            confirmPassMatch.setText("");
+        }
+        else if (!passCheck) {
+            invalidPassword.setText("Min. 8 Characters");
+            invalidEmail.setText("");
+            confirmPassMatch.setText("");
+        }
+        else {
             confirmPassMatch.setText("Password don't match");
+            invalidEmail.setText("");
+            invalidPassword.setText("");
         }
     }
 }

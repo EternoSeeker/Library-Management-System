@@ -4,7 +4,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import oracle.net.ns.AcceptPacket;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -21,7 +20,6 @@ public class MemberPageController {
     private Label bookISBN;
     @FXML
     private Label bookCopies;
-
     @FXML
     private Label bookTitleData;
     @FXML

@@ -63,7 +63,7 @@ public class Repository {
         return books;
     }
 
-    public  String[] returnMemberDetail(String emailAddress) throws SQLException{
+    public String[] returnMemberDetail(String emailAddress) throws SQLException {
         String[] memberdetails = new String[3];
         String sql = "SELECT first_name, last_name, password FROM member WHERE email = ?";
         PreparedStatement statement;
@@ -71,13 +71,15 @@ public class Repository {
         statement.setString(1, emailAddress);
         statement.executeUpdate();
         final ResultSet result = statement.getResultSet();
-        memberdetails[0] = result.getString("first_name");
-        memberdetails[1] = result.getString("last_name");
-        memberdetails[2] = result.getString("password");
+        while(result.next()){
+            memberdetails[0] = result.getString("first_name");
+            memberdetails[1] = result.getString("last_name");
+            memberdetails[2] = result.getString("password");
+        }
         return memberdetails;
     }
 
-    public boolean checkMemberEmail(String emailAddress) throws SQLException{
+    public boolean checkMemberEmail(String emailAddress) throws SQLException {
         String emailCheck = null;
         String sql = "SELECT email FROM member WHERE email = ?";
         PreparedStatement statement;
@@ -103,13 +105,13 @@ public class Repository {
 
     public static void main(String[] args) throws SQLException {
         final Repository repo = new Repository();
-//        final List<Book> books = repo.getAllBooks("Fury");
-//        for (final Book book : books) {
-//            System.out.println("ID: " + book.getId());
-//            System.out.println("Name: " + book.getName());
-//            System.out.println("Pages: " + book.getPages());
-//            System.out.println("Author name: " + book.getAuthorName());
-//        }
+        final List<Book> books = repo.getAllBooks("Fury");
+        for (final Book book : books) {
+            System.out.println("ID: " + book.getId());
+            System.out.println("Name: " + book.getName());
+            System.out.println("Pages: " + book.getPages());
+            System.out.println("Author name: " + book.getAuthorName());
+        }
     }
 }
 

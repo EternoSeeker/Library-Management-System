@@ -52,10 +52,10 @@ public class LoginMemberController {
         stage.setScene(memberPage);
         stage.show();
 //        String emailAdd = memberEmail.getText();
+//        String pass = memberPassword.getText();
+//        memberDet = repository.returnMemberDetail(emailAdd);
 //        MemberPageController memberPageController = new MemberPageController();
 //        if(repository.checkMemberEmail(emailAdd)){
-//            memberDet = repository.returnMemberDetail(emailAdd);
-//            String pass = memberPassword.getText();
 //            if(Objects.equals(encryptPassword(pass), memberDet[2])){
 //                stage.setTitle("Member Page");
 //                stage.setScene(memberPage);
@@ -69,6 +69,4 @@ public class LoginMemberController {
 //            invalidEmail.setText("Email not found");
 //        }
     }
-//    public void goBackToLoginCheck(ActionEvent event) throws IOException{
-//    }
 }
