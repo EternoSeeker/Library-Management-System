@@ -45,9 +45,9 @@ public class LoginMemberController {
     }
 
     public void switchMemberPage(ActionEvent Action) throws IOException, SQLException {
-        final var stage = new Stage();
-        final FXMLLoader fxmlLoader = new FXMLLoader(BookApplication.class.getResource("MemberPage.fxml"));
-        final Scene memberPage = new Scene(fxmlLoader.load(), 800, 600);
+        var stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(BookApplication.class.getResource("MemberPage.fxml"));
+        Scene memberPage = new Scene(fxmlLoader.load(), 800, 600);
         stage.setTitle("Member Page");
         stage.setScene(memberPage);
         stage.show();

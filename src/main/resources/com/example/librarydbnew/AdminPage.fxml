@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.librarydbnew.AdminPageController">
-   <TextField layoutX="289.0" layoutY="153.0" prefHeight="45.0" prefWidth="365.0" promptText="Search for books">
+   <TextField id="searchBookTitle" fx:id="searchBookTitle" layoutX="289.0" layoutY="153.0" prefHeight="45.0" prefWidth="365.0" promptText="Search for books">
       <font>
          <Font size="20.0" />
       </font>
@@ -23,7 +23,7 @@
          <Font name="Century Gothic Bold" size="28.0" />
       </font>
    </Label>
-   <Button blendMode="SRC_ATOP" layoutX="668.0" layoutY="153.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" textOverrun="CLIP">
+   <Button blendMode="SRC_ATOP" layoutX="668.0" layoutY="153.0" mnemonicParsing="false" onAction="#searchBookAdmin" prefHeight="45.0" prefWidth="45.0" textOverrun="CLIP">
       <effect>
          <DropShadow height="10.0" radius="4.5" spread="0.5" width="10.0">
             <color>
@@ -48,9 +48,82 @@
       </image>
    </ImageView>
    <Separator layoutX="200.0" layoutY="231.0" prefHeight="0.0" prefWidth="599.0" />
-   <Label alignment="CENTER" layoutX="56.0" layoutY="140.0" prefHeight="26.0" prefWidth="89.0" text="Admin">
+   <Label id="firstName" fx:id="firstName" alignment="CENTER" layoutX="56.0" layoutY="140.0" prefHeight="26.0" prefWidth="89.0" text="Admin">
       <font>
          <Font name="Segoe UI Semibold" size="17.0" />
       </font>
    </Label>
+   <Label id="lastName" fx:id="lastName" alignment="CENTER" layoutX="56.0" layoutY="166.0" prefHeight="26.0" prefWidth="90.0">
+      <font>
+         <Font name="Segoe UI Semibold" size="17.0" />
+      </font>
+   </Label>
+   <Separator layoutX="200.0" layoutY="326.0" prefHeight="0.0" prefWidth="599.0" />
+   <Label id="bookTitle" fx:id="bookTitle" layoutX="221.0" layoutY="239.0">
+      <font>
+         <Font name="Calibri Bold" size="18.0" />
+      </font>
+   </Label>
+   <Label id="bookTitleData" fx:id="bookTitleData" layoutX="289.0" layoutY="237.0" prefHeight="26.0" prefWidth="167.0" textFill="#00289e">
+      <font>
+         <Font name="Segoe UI Semibold" size="16.0" />
+      </font>
+   </Label>
+   <Label id="bookAuthor" fx:id="bookAuthor" layoutX="220.0" layoutY="264.0">
+      <font>
+         <Font name="Calibri Bold" size="18.0" />
+      </font>
+   </Label>
+   <Label id="bookPages" fx:id="bookPages" layoutX="524.0" layoutY="238.0">
+      <font>
+         <Font name="Calibri Bold" size="18.0" />
+      </font>
+   </Label>
+   <Label id="bookISBN" fx:id="bookISBN" layoutX="220.0" layoutY="289.0">
+      <font>
+         <Font name="Calibri Bold" size="18.0" />
+      </font>
+   </Label>
+   <Label id="bookCopies" fx:id="bookCopies" layoutX="524.0" layoutY="264.0">
+      <font>
+         <Font name="Calibri Bold" size="18.0" />
+      </font>
+   </Label>
+   <Label id="bookAuthorData" fx:id="bookAuthorData" layoutX="289.0" layoutY="262.0" prefHeight="26.0" prefWidth="167.0" textFill="#00289e">
+      <font>
+         <Font name="Segoe UI Semibold" size="16.0" />
+      </font>
+   </Label>
+   <Label id="bookISBNData" fx:id="bookISBNData" layoutX="289.0" layoutY="287.0" prefHeight="26.0" prefWidth="167.0" textFill="#00289e">
+      <font>
+         <Font name="Segoe UI Semibold" size="16.0" />
+      </font>
+   </Label>
+   <Label id="bookPageData" fx:id="bookPageData" layoutX="605.0" layoutY="237.0" prefHeight="26.0" prefWidth="125.0" textFill="#00289e">
+      <font>
+         <Font name="Segoe UI Semibold" size="16.0" />
+      </font>
+   </Label>
+   <Label id="bookCopiesData" fx:id="bookCopiesData" layoutX="605.0" layoutY="262.0" prefHeight="26.0" prefWidth="126.0" textFill="#00289e">
+      <font>
+         <Font name="Segoe UI Semibold" size="16.0" />
+      </font>
+   </Label>
+   <ImageView fitHeight="80.0" fitWidth="167.0" layoutX="18.0" layoutY="495.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../../Images/book.png" />
+      </image>
+   </ImageView>
+   <Button onAction="#switchBookPage" layoutX="63.0" layoutY="199.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="75.0" text="Add Book" textFill="#110082">
+      <font>
+         <Font size="13.0" />
+      </font>
+      <effect>
+         <DropShadow height="8.0" radius="3.5" spread="0.38" width="8.0">
+            <color>
+               <Color green="0.11508771777153015" blue="0.43157893419265747" />
+            </color>
+         </DropShadow>
+      </effect>
+   </Button>
 </AnchorPane>

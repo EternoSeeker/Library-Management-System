@@ -63,6 +63,29 @@ public class Repository {
         return books;
     }
 
+    public void insertMember(String firstName, String lastName, String emailAddress, String pas) throws SQLException {
+        String sql = "insert into member (member_id, first_name, last_name, email, password, book_issue_date, book_id) values (member_id.NEXTVAL, ?, ?, ?, ?, null, null)";
+        PreparedStatement statement;
+        statement = connection.prepareStatement(sql);
+        statement.setString(1, firstName);
+        statement.setString(2, lastName);
+        statement.setString(3, emailAddress);
+        statement.setString(4, pas);
+        statement.executeUpdate();
+    }
+
+    public void insertBook(String bookName, String bookISBN, long totalCopies, long bookPrice, String bookAuthor, long bookPages) throws SQLException {
+        String sql = "insert into book (id, book_name, isbn, total_copies, price, author_name, pages, issue_date) values (103, ?, ?, ?, ?, ?, ?, null)";
+        PreparedStatement statement;
+        statement = connection.prepareStatement(sql);
+        statement.setString(1, bookName);
+        statement.setString(2, bookISBN);
+        statement.setLong(3, totalCopies);
+        statement.setLong(4, bookPrice);
+        statement.setString(5, bookAuthor);
+        statement.setLong(6, bookPages);
+        statement.executeUpdate();
+    }
     public String[] returnMemberDetail(String emailAddress) throws SQLException {
         String[] memberdetails = new String[3];
         String sql = "SELECT first_name, last_name, password FROM member WHERE email = ?";
@@ -90,19 +113,6 @@ public class Repository {
         emailCheck = result.getString("email");
         return emailCheck != null;
     }
-
-    public void insertMember(String firstName, String lastName, String emailAddress, String pas) throws SQLException {
-        String sql = "insert into member (member_id, first_name, last_name, email, password, book_issue_date, book_id) values (member_id.NEXTVAL, ?, ?, ?, ?, null, null)";
-        PreparedStatement statement;
-        statement = connection.prepareStatement(sql);
-        statement.setString(1, firstName);
-        statement.setString(2, lastName);
-        statement.setString(3, emailAddress);
-        statement.setString(4, pas);
-        statement.executeUpdate();
-    }
-
-
     public static void main(String[] args) throws SQLException {
         final Repository repo = new Repository();
         final List<Book> books = repo.getAllBooks("Fury");

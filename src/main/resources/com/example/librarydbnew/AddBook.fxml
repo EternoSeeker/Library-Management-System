@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.librarydbnew.AddBookController">
+   <children>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Images/pngwing.com.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="323.0" layoutY="79.0" text="Add New Book">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <TextField id="bookName" fx:id="bookName" layoutX="323.0" layoutY="156.0" prefHeight="32.0" prefWidth="180.0" />
+      <TextField id="bookISBN" fx:id="bookISBN" layoutX="323.0" layoutY="214.0" prefHeight="32.0" prefWidth="180.0" />
+      <TextField id="bookPages" fx:id="bookPages" layoutX="323.0" layoutY="421.0" prefHeight="32.0" prefWidth="180.0" />
+      <TextField id="bookCopies" fx:id="bookCopies" layoutX="323.0" layoutY="371.0" prefHeight="32.0" prefWidth="180.0" />
+      <TextField id="bookPrice" fx:id="bookPrice" layoutX="323.0" layoutY="323.0" prefHeight="32.0" prefWidth="180.0" />
+      <TextField id="bookAuthor" fx:id="bookAuthor" layoutX="323.0" layoutY="268.0" prefHeight="32.0" prefWidth="180.0" />
+      <Label layoutX="242.0" layoutY="162.0" text="Book name">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Button layoutX="373.0" layoutY="476.0" mnemonicParsing="false" onAction="#insertBook" prefHeight="32.0" prefWidth="79.0" text="Add Book">
+         <effect>
+            <DropShadow height="7.0" radius="2.75" spread="0.3" width="6.0">
+               <color>
+                  <Color red="0.013399999588727951" green="0.3464217483997345" blue="0.6700000166893005" />
+               </color>
+            </DropShadow>
+         </effect>
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+      <Label layoutX="279.0" layoutY="220.0" text="ISBN">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="269.0" layoutY="274.0" text="Author">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="280.0" layoutY="329.0" text="Price">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="270.0" layoutY="377.0" text="Copies">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="272.0" layoutY="427.0" text="Pages">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="confirmAddBook" id="confirmAddBook" alignment="CENTER" layoutX="322.0" layoutY="531.0" prefHeight="20.0" prefWidth="180.0" textFill="#006613">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
