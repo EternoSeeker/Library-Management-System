@@ -78,4 +78,15 @@ public class AdminPageController {
         stage.setScene(addBook);
         stage.show();
     }
+
+    public void switchAddReturnPage(ActionEvent actionEvent) throws IOException{
+        final var stage = new Stage();
+        final FXMLLoader fxmlLoader = new FXMLLoader(BookApplication.class.getResource("addReturn.fxml"));
+        final Scene addReturn = new Scene(fxmlLoader.load(), 800, 600);
+        stage.setTitle("Issue/Return");
+        stage.setScene(addReturn);
+        stage.show();
+    }
+
+
 }

@@ -114,7 +114,7 @@
          <Image url="@../../../Images/book.png" />
       </image>
    </ImageView>
-   <Button onAction="#switchBookPage" layoutX="63.0" layoutY="199.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="75.0" text="Add Book" textFill="#110082">
+   <Button layoutX="63.0" layoutY="192.0" mnemonicParsing="false" onAction="#switchBookPage" prefHeight="32.0" prefWidth="75.0" text="Add Book" textFill="#110082">
       <font>
          <Font size="13.0" />
       </font>
@@ -122,6 +122,30 @@
          <DropShadow height="8.0" radius="3.5" spread="0.38" width="8.0">
             <color>
                <Color green="0.11508771777153015" blue="0.43157893419265747" />
+            </color>
+         </DropShadow>
+      </effect>
+   </Button>
+   <Button id="issueBook" fx:id="issueBook" layoutX="56.0" layoutY="273.0" mnemonicParsing="false" onAction="#switchAddReturnPage" prefHeight="32.0" prefWidth="90.0" text="Issue Book" textFill="#110082">
+      <font>
+         <Font size="13.0" />
+      </font>
+      <effect>
+         <DropShadow height="8.0" radius="3.5" spread="0.52" width="8.0">
+            <color>
+               <Color green="0.4300000071525574" blue="0.182186096906662" />
+            </color>
+         </DropShadow>
+      </effect>
+   </Button>
+   <Button id="returnBook" fx:id="returnBook" layoutX="56.0" layoutY="329.0" mnemonicParsing="false" onAction="#switchAddReturnPage" prefHeight="32.0" prefWidth="90.0" text="Return Book" textFill="#110082">
+      <font>
+         <Font size="13.0" />
+      </font>
+      <effect>
+         <DropShadow height="8.0" radius="3.5" spread="0.38" width="8.0">
+            <color>
+               <Color red="0.4300000071525574" />
             </color>
          </DropShadow>
       </effect>

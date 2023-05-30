@@ -8,7 +8,6 @@ public class Book {
     private long price;
     private String authorName;
     private long pages;
-    
     private String issue_date;
     Book(long id, String name, String isbn, long totalCopies, long price, String authorName, long pages, String issue_date ){
         this.id = id;

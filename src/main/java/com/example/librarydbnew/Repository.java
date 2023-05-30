@@ -86,6 +86,37 @@ public class Repository {
         statement.setLong(6, bookPages);
         statement.executeUpdate();
     }
+
+    public void issueBook(long memberID, long bookID) throws SQLException{
+        String sql1 = "UPDATE member SET book_issue_date = SYSDATE WHERE member_id = ?";
+        String sql2 = "UPDATE book SET issue_date = SYSDATE WHERE id = ?";
+        String sql3 = "UPDATE member SET book_id = ? WHERE member_id = ?";
+        PreparedStatement statement1;
+        PreparedStatement statement2;
+        PreparedStatement statement3;
+        statement1 = connection.prepareStatement(sql1);
+        statement1.setLong(1, memberID);
+        statement2 = connection.prepareStatement(sql2);
+        statement2.setLong(1, bookID);
+        statement3 = connection.prepareStatement(sql3);
+        statement3.setLong(1, bookID);
+        statement3.setLong(2, memberID);
+        statement1.executeUpdate();
+        statement2.executeUpdate();
+    }
+
+    public void returnBook(long memberID, long bookID) throws SQLException{
+        String sql1 = "UPDATE member SET book_issue_date = null, book_id = null WHERE member_id = ?";
+        String sql2 = "UPDATE book SET issue_date = null WHERE id = ?";
+        PreparedStatement statement1;
+        PreparedStatement statement2;
+        statement1 = connection.prepareStatement(sql1);
+        statement1.setLong(1, memberID);
+        statement2 = connection.prepareStatement(sql2);
+        statement2.setLong(1, bookID);
+        statement1.executeUpdate();
+        statement2.executeUpdate();
+    }
     public String[] returnMemberDetail(String emailAddress) throws SQLException {
         String[] memberdetails = new String[3];
         String sql = "SELECT first_name, last_name, password FROM member WHERE email = ?";
