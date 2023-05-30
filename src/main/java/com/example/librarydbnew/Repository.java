@@ -75,7 +75,7 @@ public class Repository {
     }
 
     public void insertBook(String bookName, String bookISBN, long totalCopies, long bookPrice, String bookAuthor, long bookPages) throws SQLException {
-        String sql = "insert into book (id, book_name, isbn, total_copies, price, author_name, pages, issue_date) values (103, ?, ?, ?, ?, ?, ?, null)";
+        String sql = "insert into book (id, book_name, isbn, total_copies, price, author_name, pages, issue_date) values (104, ?, ?, ?, ?, ?, ?, null)";
         PreparedStatement statement;
         statement = connection.prepareStatement(sql);
         statement.setString(1, bookName);

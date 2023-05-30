@@ -8,7 +8,6 @@ import java.sql.SQLException;
 
 public class BookApplication extends Application {
     @Override
-    // Stage stage1;
     public void start(Stage stage) throws IOException, SQLException {
         final Repository repository = new Repository();
         FXMLLoader fxmlLoader = new FXMLLoader(BookApplication.class.getResource("LoginCheck.fxml"));

@@ -35,7 +35,6 @@ public class AddBookController {
         int copies = Integer.parseInt(bookCopies.getText());
         int price = Integer.parseInt(bookPrice.getText());
         int pages = Integer.parseInt(bookPages.getText());
-        //System.out.println(copies + " " + price + " " + " " + pages);
         repo.insertBook(bookName.getText(), bookISBN.getText(), copies, price, bookAuthor.getText(), pages);
         confirmAddBook.setText("Book Added Successfully!");
     }
